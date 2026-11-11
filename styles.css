@@ -1093,6 +1093,7 @@ main.page:has(.work) {
 .meet__photos {
   display: grid;
   grid-template-columns: 1fr 1fr;
+  grid-template-rows: repeat(3, auto);
   gap: 1rem;
   align-self: start;
   position: sticky;
@@ -1104,12 +1105,23 @@ main.page:has(.work) {
 }
 
 .portrait:first-child {
-  grid-row: span 2;
+  grid-row: 1 / -1;
 }
 
 .portrait:first-child img {
   height: 100%;
   object-fit: cover;
+  object-position: 50% 30%;
+}
+
+.portrait:first-child a {
+  height: 100%;
+}
+
+.portrait:not(:first-child) img {
+  height: clamp(160px, 20vh, 210px);
+  object-fit: cover;
+  object-position: 50% 25%;
 }
 
 .meet__story h2 {
