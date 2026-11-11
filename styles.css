@@ -1653,6 +1653,10 @@ body.lb-open {
 }
 
 .facts dd {
+  font-size: clamp(1.5rem, 2.6vw, 2rem);
+}
+
+.facts dd {
   white-space: nowrap;
 }
 
