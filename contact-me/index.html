@@ -1,0 +1,92 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Contact Me | M. Iqbal Husnoo</title>
+    <meta name="description" content="Contact M. Iqbal Husnoo in Pailles, Mauritius, by email, phone or the contact form." />
+    <meta property="og:title" content="Contact Me | M. Iqbal Husnoo" />
+    <meta property="og:description" content="Contact M. Iqbal Husnoo in Pailles, Mauritius, by email, phone or the contact form." />
+    <meta property="og:type" content="website" />
+    <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
+    <script>document.documentElement.classList.add('js')</script>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Unbounded:wght@400;500;700;800&family=Figtree:ital,wght@0,400;0,500;0,600;1,400&family=Instrument+Serif:ital@0;1&family=JetBrains+Mono:wght@400;500&display=swap" />
+    <link rel="stylesheet" href="/styles.css" />
+    <meta name="theme-color" content="#12110f" />
+  </head>
+  <body>
+    <a class="skip-link" href="#main">Skip to content</a>
+
+    <header class="site-header" id="site-header">
+      <div class="bar">
+        <a class="brand" href="/" aria-label="M. Iqbal Husnoo, home">
+          <span class="brand__mark" aria-hidden="true">iH</span>
+          <span class="brand__name">M.Iqbal Husnoo</span>
+        </a>
+        <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="site-nav" hidden>
+          <span class="nav-toggle__lines" aria-hidden="true"></span>
+          <span class="sr-only">Menu</span>
+        </button>
+        <nav class="site-nav" id="site-nav" aria-label="Main">
+          <ul>
+            <li><a href="/">Home</a></li>
+            <li><a href="/my-works/">My Works</a></li>
+            <li><a href="/case-studies/">Case Studies</a></li>
+            <li><a href="/meet-me/">Meet Me</a></li>
+            <li><a href="/contact-me/" class="nav-cta" aria-current="page">Contact Me</a></li>
+          </ul>
+        </nav>
+      </div>
+    </header>
+
+    <main id="main" class="page">
+      <h1 class="page-title">Get in touch with me</h1>
+      <div class="contact">
+        <address class="contact__details">
+          <p>Avenue Cardinal 7,<br />Les Guibies, Pailles<br />Mauritius</p>
+          <p><a href="mailto:mihusnoo@gmail.com">mihusnoo@gmail.com</a></p>
+          <p>Tel: <a href="tel:+2302860854">+230 286 0854</a><br />Cel: <a href="tel:+23057554415">+230 57 55 44 15</a></p>
+        </address>
+
+        <form action='/thank-you/' class='contact__form' id='contact-form' method='POST' name='contact'><input type='hidden' name='form-name' value='contact' />
+          <p class="sr-only"><label>Leave this empty: <input name="bot-field" tabindex="-1" autocomplete="off" /></label></p>
+          <p><label for="cf-name">Name <span aria-hidden="true">*</span></label>
+            <input id="cf-name" type="text" name="name" required autocomplete="name" /></p>
+          <p><label for="cf-email">Email <span aria-hidden="true">*</span></label>
+            <input id="cf-email" type="email" name="email" required autocomplete="email" /></p>
+          <p><label for="cf-subject">Subject</label>
+            <input id="cf-subject" type="text" name="subject_line" /></p>
+          <p><label for="cf-message">Message</label>
+            <textarea id="cf-message" name="message" rows="6"></textarea></p>
+          <p><button class="button" type="submit">Send</button></p>
+          <p class="form-status" role="status" id="form-status"></p>
+        </form>
+      </div>
+    </main>
+
+    <footer class="site-footer">
+      <blockquote class="footer-quote">
+        <p>&ldquo;I have no special talent. I&rsquo;m only passionately curious.&rdquo;</p>
+        <footer>Albert Einstein</footer>
+      </blockquote>
+      <p class="motto" aria-label="i-Design, i-Develop, i-Do">
+        <span>i-Design</span> <span>i-Develop</span> <span>i-Do</span>
+      </p>
+      <nav aria-label="Footer">
+        <ul>
+          <li><a href="/">Home</a></li>
+          <li><a href="/my-works/">My Works</a></li>
+          <li><a href="/case-studies/">Case Studies</a></li>
+          <li><a href="/meet-me/">Meet Me</a></li>
+          <li><a href="/contact-me/" aria-current="page">Contact Me</a></li>
+        </ul>
+      </nav>
+      <p class="site-footer__legal">&copy; 2017&ndash;2026 by M. Iqbal Husnoo &bull; <a href="/disclaimer/">Disclaimer</a></p>
+    </footer>
+
+    <script src="/script.js" defer></script>
+  <script async src="/.netlify/scripts/ar" data-netlify-deploy-id="6aeda1de64c3be196e631531" data-netlify-site-id="eb80ddab-bd80-4e08-9656-230af364bd18" data-agent-runner-id="6aed9f46a1a88d7fdc7c8394"></script>
+</body>
+</html>
