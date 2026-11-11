@@ -1,5 +1,5 @@
 // Progressive enhancements. Every page works without JavaScript: links open
-// the full-size images, the menu is a plain row and the form posts normally.
+// the full-size images, the menu is a plain row and the form composes an email.
 
 const root = document.documentElement;
 root.classList.add('js');
@@ -206,37 +206,35 @@ if (galleryLinks.length && typeof HTMLDialogElement === 'function') {
 }
 
 /* ------------------------------------------------------------------------
-   Contact form: submit in place, then go to the thank-you page
+   Contact form: compose the message in the visitor's email app, so the form
+   works on static hosting with no backend
    ------------------------------------------------------------------------ */
 
 const form = document.getElementById('contact-form');
 const status = document.getElementById('form-status');
 
 if (form && status) {
-  form.addEventListener('submit', async (event) => {
+  form.addEventListener('submit', (event) => {
     event.preventDefault();
-    const button = form.querySelector('button[type="submit"]');
     const data = new FormData(form);
-    if (!data.has('form-name')) data.set('form-name', form.getAttribute('name'));
 
-    button.disabled = true;
-    button.textContent = 'Sending…';
-    status.classList.remove('is-error');
-    status.textContent = '';
-
-    try {
-      const response = await fetch('/', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
-        body: new URLSearchParams(data).toString(),
-      });
-      if (!response.ok) throw new Error(String(response.status));
-      window.location.href = form.getAttribute('action') || '/thank-you/';
-    } catch {
-      status.classList.add('is-error');
-      status.textContent = 'Sorry, the message could not be sent. Please try again or email mihusnoo@gmail.com.';
-      button.disabled = false;
-      button.textContent = 'Send';
+    if (data.get('bot-field')) {
+      status.classList.remove('is-error');
+      status.textContent = 'Thank you.';
+      form.reset();
+      return;
     }
+
+    const name = String(data.get('name') || '').trim();
+    const email = String(data.get('email') || '').trim();
+    const subject = String(data.get('subject_line') || '').trim() || `Website enquiry from ${name}`;
+    const message = String(data.get('message') || '').trim();
+    const body = `Name: ${name}\nEmail: ${email}\n\n${message}`;
+
+    status.classList.remove('is-error');
+    status.textContent =
+      'Opening your email app with your message ready to send. If nothing opens, write to mihusnoo@gmail.com directly.';
+
+    window.location.href = `mailto:mihusnoo@gmail.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
   });
 }
