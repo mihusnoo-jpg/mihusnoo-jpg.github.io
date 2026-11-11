@@ -1111,7 +1111,7 @@ main.page:has(.work) {
 .portrait:first-child img {
   height: 100%;
   object-fit: cover;
-  object-position: 50% 30%;
+  object-position: 55% 40%;
 }
 
 .portrait:first-child a {
