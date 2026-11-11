@@ -206,6 +206,16 @@ if (galleryLinks.length && typeof HTMLDialogElement === 'function') {
 }
 
 /* ------------------------------------------------------------------------
+   Contact: pre-fill the subject when arriving from a call to action
+   ------------------------------------------------------------------------ */
+
+const subjectInput = document.getElementById('cf-subject');
+if (subjectInput && !subjectInput.value) {
+  const preset = new URLSearchParams(window.location.search).get('subject');
+  if (preset) subjectInput.value = preset.slice(0, 200);
+}
+
+/* ------------------------------------------------------------------------
    Contact form: compose the message in the visitor's email app, so the form
    works on static hosting with no backend
    ------------------------------------------------------------------------ */

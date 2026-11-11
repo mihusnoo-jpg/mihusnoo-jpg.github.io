@@ -1045,6 +1045,10 @@ main.page::before {
   color: var(--accent);
 }
 
+.work__intro--novel::before {
+  content: counter(work, decimal-leading-zero) ' / Novel';
+}
+
 .work__intro h2 {
   font-family: var(--font-display);
   font-size: clamp(1.5rem, 2.6vw, 2.1rem);
@@ -1645,7 +1649,7 @@ body.lb-open {
 
 .facts {
   max-width: none;
-  gap: clamp(1.25rem, 2.5vw, 2.25rem);
+  gap: clamp(1.25rem, 2vw, 2rem);
 }
 
 .facts dd {
